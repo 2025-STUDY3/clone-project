@@ -4,8 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 @Getter
-@Schema(description = "댓글 작성 요청")
-public class CommentCreateRequest {
+@Schema(description = "댓글 수정 요청")
+public class CommentUpdateRequest {
     @Schema(description = "내용")
     private String content;
 

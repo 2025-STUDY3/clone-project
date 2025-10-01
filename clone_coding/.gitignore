@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# MySQL Docker volume
+_vol/

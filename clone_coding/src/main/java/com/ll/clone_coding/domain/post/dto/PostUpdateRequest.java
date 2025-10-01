@@ -6,18 +6,18 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-@Schema(description = "게시글 작성 요청")
-public class PostCreateRequest {
+@Schema(description = "게시글 수정 요청")
+public class PostUpdateRequest {
 
-    @Schema(description = "제목", example = "안녕하세요")
+    @Schema(description = "제목")
     private String title;
 
-    @Schema(description = "내용", example = "첫 글입니다.")
+    @Schema(description = "내용")
     private String content;
 
     @Schema(description = "익명 여부")
     private boolean anonymous;
 
-    @Schema(description = "카테고리 ID 목록", example = "[1,2,3]")
+    @Schema(description = "카테고리 ID 목록")
     private List<Long> categoryIds;
 }
