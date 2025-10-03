@@ -1,0 +1,10 @@
+.gradle
+build
+.git
+.gitignore
+.DS_Store
+node_modules
+_vol
+**/*.sock
+**/*.pid
+docker-compose*.yml

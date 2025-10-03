@@ -1,4 +1,15 @@
 services:
+  app:
+    image: everytime-app:local
+    container_name: everytime-app-dev
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    depends_on:
+      - everytime-mysql
+    restart: unless-stopped
+
   everytime-mysql:      # 팀/프로젝트 이름을 접두사로 붙여 팀원이 여러 도커 띄워도 충돌이 안 나도록!
     image: mysql:8.0.43
     container_name: everytime-mysql-dev  # 프로젝트-서비스-환경 -> 협업 시 직관적임
