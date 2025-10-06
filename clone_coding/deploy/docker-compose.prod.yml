@@ -7,18 +7,22 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=prod
       - SPRING_APPLICATION_JSON={
-        "jwt":{"secret":" aaaa-secret-key-aaaa-bb-cc-ddddd-256-bits-long-for-HS256-algorithm-everytime-clone-project-team3","expiration":86400000},
-        "spring":{"datasource":{
-        "url":"jdbc:mysql://everytime-mysql:13306/everytime_db?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8&serverTimezone=UTC",
+        "jwt":{"secret":"aaaa-secret-key-aaaa-bb-cc-ddddd-256-bits-long-for-HS256-algorithm-everytime-clone-project-team3","expiration":86400000},
+        "spring":{
+        "datasource":{
+        "url":"jdbc:mysql://everytime-mysql:3306/everytime_db?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8&serverTimezone=UTC",
         "username":"team3",
         "password":"everytime_pw"
+        },
+        "jpa":{
+        "hibernate":{"ddl-auto":"update"},
+        "properties":{"hibernate":{"format_sql":true}}
         }}
         }
     ports:
       - "80:8080"
     depends_on:
-      everytime-mysql:
-        condition: service_healthy
+      - everytime-mysql
     restart: unless-stopped
 
   everytime-mysql:
